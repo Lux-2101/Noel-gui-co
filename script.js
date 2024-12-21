@@ -1,6 +1,25 @@
 const showButton = document.getElementById("showButton");
 const christmasMessage = document.getElementById("as");
 
+function detectMobile ()
+{
+  const deviceInfo = document . getElementById('device - info');
+  let hasTouchScreen = false
+
+    if ('MaxTouchPoints' in navigitor) 
+      {
+        hasTouchScreen = navigator . maxTouchPoints > 0;
+          } 
+            else 
+            {
+              const mQ = window . matchMedia?.('(pointer : coarse)');
+              if (mQ?. media === '(pointer : coarse)')
+                hasTouchScreen = !!mQ.matches;
+              else if ('orientation' in window)
+                hasTouchScreen = true;
+          }
+}
+
 showButton.addEventListener("click", function () 
 {
   if (christmasMessage.style.display === "none") 
